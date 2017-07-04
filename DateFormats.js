@@ -51,10 +51,26 @@ function AKdate()
 		return format("dd-mm-yy hr:min:sec",inpDate);
 	}
 
+	function finYear(short)
+	{
+		var d = new Date();
+		var y = d.getFullYear();
+		var ys = y.toString().substr(2,2);
+		if(d.getMonth()+1 > 3)
+		{
+			return short==="f" ? y+"-"+(y+1) : ys+"-"+(parseInt(ys)+1);
+		}
+		else
+		{
+			return short==="f" ? y-1+"-"+y : parseInt(ys)-1+"-"+ys;
+		}
+	}
+
 	AKdate.format = format;
 	AKdate.cordys = cordys;
 	AKdate.date = date;
 	AKdate.datetime = datetime;
+	AKdate.finYear = finYear;
 } 
 
 
@@ -70,5 +86,8 @@ var AK = {
 	},
 	getFormattedDate : function(param,inpDate){
 		AKdate(); return AKdate.format(param,inpDate)
+	},
+	getFinYear : function(ShortorFull){
+		AKdate(); return AKdate.finYear(ShortorFull)
 	},
 }
