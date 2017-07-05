@@ -1,5 +1,12 @@
 function AKdate()
 {
+	/*		supporting functions	*/
+	function shortYear(inp)
+	{
+		return parseInt(inp.toString().substr(2,2),10);
+	}
+
+	/*		main functions	*/
 	function format(param,inpDate)
 	{
 		var fMonth = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
@@ -55,14 +62,13 @@ function AKdate()
 	{
 		var d = new Date();
 		var y = d.getFullYear();
-		var ys = y.toString().substr(2,2);
 		if(d.getMonth()+1 > 3)
 		{
-			return short==="f" ? y+"-"+(y+1) : ys+"-"+(parseInt(ys)+1);
+			return short==="f" ? y+"-"+(y+1) : shortYear(y)+"-"+(shortYear(y)+1);
 		}
 		else
 		{
-			return short==="f" ? y-1+"-"+y : parseInt(ys)-1+"-"+ys;
+			return short==="f" ? y-1+"-"+y : shortYear(y)-1+"-"+shortYear(y);
 		}
 	}
 
