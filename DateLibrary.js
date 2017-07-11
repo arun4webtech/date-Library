@@ -54,6 +54,7 @@
 		};
 
 		_arunDateObj.finYear = function(short="s",date = new Date()){
+			date = new Date(date);
 			var y = date.getFullYear();
 			if(date.getMonth()+1 > 3)
 				return short==="f" ? y+"-"+(y+1) : _arunDateObj.shortYear(y)+"-"+(_arunDateObj.shortYear(y)+1);
