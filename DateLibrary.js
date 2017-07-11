@@ -8,8 +8,7 @@
 		_arunDateObj.customDate = function(param = "dd-mm-YY rhr:min:sec",dateObj = new Date()){
 			var fMonth = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
 			var sMonth = ["Jan", "Feb", "Mar", "Apr", "May", "June","July", "Aug", "Sept", "Oct", "Nov", "Dec"];
-			if(!dateObj instanceof Date)
-				dateObj = new Date();
+			dateObj = new Date(dateObj);
 			var date = dateObj.getDate();
 			(date < 10) ? date = "0"+date : date;
 			var month = dateObj.getMonth()+1;
