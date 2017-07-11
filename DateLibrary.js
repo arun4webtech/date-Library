@@ -5,13 +5,11 @@
 
 		var _arunDateObj = {};
     
-		_arunDateObj.customDate = function(param,inpDate){
+		_arunDateObj.customDate = function(param = "dd-mm-YY rhr:min:sec",dateObj = new Date()){
 			var fMonth = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
 			var sMonth = ["Jan", "Feb", "Mar", "Apr", "May", "June","July", "Aug", "Sept", "Oct", "Nov", "Dec"];
-			if(inpDate != undefined)
-				var dateObj = new Date(inpDate)
-			else
-				var dateObj = new Date()
+			if(!dateObj instanceof Date)
+				dateObj = new Date();
 			var date = dateObj.getDate();
 			(date < 10) ? date = "0"+date : date;
 			var month = dateObj.getMonth()+1;
@@ -43,26 +41,22 @@
 			return param;
 		};
 		
-		_arunDateObj.shortYear = function(inp)
+		_arunDateObj.shortYear = function(inp = new Date().getFullYear())
 		{
 			return parseInt(inp.toString().substr(2,2),10);
 		}
 		
-		_arunDateObj.dateTime = function(inpDate){
+		_arunDateObj.dateTime = function(inpDate = new Date()){
 			return _arunDateObj.customDate("dd-mm-yy hr:min:sec",inpDate);
 		};
 
-		_arunDateObj.date = function(inpDate){
+		_arunDateObj.date = function(inpDate = new Date()){
 			return _arunDateObj.customDate("dd-mm-yy",inpDate);
 		};
 
-		_arunDateObj.finYear = function(short,date){
-			if(date != undefined)
-				var d = new Date(inpDate)
-			else
-				var d = new Date()
-			var y = d.getFullYear();
-			if(d.getMonth()+1 > 3)
+		_arunDateObj.finYear = function(short="s",date = new Date()){
+			var y = date.getFullYear();
+			if(date.getMonth()+1 > 3)
 				return short==="f" ? y+"-"+(y+1) : _arunDateObj.shortYear(y)+"-"+(_arunDateObj.shortYear(y)+1);
 			else
 				return short==="f" ? y-1+"-"+y : _arunDateObj.shortYear(y)-1+"-"+_arunDateObj.shortYear(y);
