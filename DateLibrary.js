@@ -62,7 +62,7 @@
 				return short==="f" ? y-1+"-"+y : _arunDateObj.shortYear(y)-1+"-"+_arunDateObj.shortYear(y);
 		};
 		
-		_arunDateObj.finYears = function(previous=0,current=1,next=0,shortfull="f"){
+		_arunDateObj.finYears = function(previous=1,current=1,next=1,shortfull="f"){
 			let finYearList = [];
 			if(previous!=0)
 				for(let i=previous;i>0;i--)
