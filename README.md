@@ -1,4 +1,4 @@
-# date Library
+# JavaScript Date Library
 
 1) dateLib.customDate()
 
