@@ -77,7 +77,7 @@
 				for(let i=1;i<=next;i++)
 				{
 					let date = new Date();
-					date.setYear(date.getFullYear()-i)
+					date.setYear(date.getFullYear()+i)
 					finYearList.push(_arunDateObj.finYear(shortfull,date))
 				}
 			return finYearList;
