@@ -18,7 +18,7 @@
 			var Rhour = dateObj.getHours();
 			(Rhour < 10) ? Rhour = "0"+Rhour : Rhour;
 			var hour = (Rhour > 12) ? Rhour-12 : Rhour;
-			(hour < 10) ? hour = "0"+hour : hour;
+			//(hour < 10) ? hour = "0"+hour : hour;
 			var min = dateObj.getMinutes();
 			(min < 10) ? min = "0"+min : min;
 			var sec =  dateObj.getSeconds();
